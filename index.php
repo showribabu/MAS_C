@@ -49,7 +49,7 @@
 
         </form>
         <form action="" method="post" hidden>
-          <input type="text" name = "carryuserid" value=<?>
+          <input type="text" name = "carryuserid" value= "" >
         </form>
         </div>
         </div>
@@ -134,11 +134,8 @@
                   $_SESSION['user_id']= $userid;
                   header('Location: index2.php');
                   exit;
-                  // ?>
-                  // <script>
-                  // window.location.href = "index2.php";
-                  // </script>
-                  // <?php
+                
+                  
                 }
               else
               {
@@ -164,11 +161,7 @@
                   $_SESSION['user_id']= $userid;
                   header('Location: index2.php');
                   exit;
-                  // ?>
-                  // <script>
-                  // window.location.href = "index2.php";
-                  // </script>
-                  // <?php
+              
                 }
               else
               {
