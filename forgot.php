@@ -33,7 +33,7 @@
                     
                 <div class="form-group ">
                    
-                    <input class="inpt" type="text" name="user_idq" id="user_idq"  hidden style="postion:absolute";>
+                    <input class="inpt" type="text" name="user_idq" id="user_idq"  hidden style="position:absolute;">
                 </div>
                     <div>
                         <i class="fa fa-user lock"></i>
