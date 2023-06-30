@@ -1,7 +1,11 @@
 <?php 
 
+
+
 include "conn.php";
-session_start();
+include "nav.html";
+include "button.html";
+
 $gmid=$_SESSION['gmid'];
 
 
@@ -15,12 +19,12 @@ $gmid=$_SESSION['gmid'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!-- <style>
 
 body {
             margin: 0;
             font-family: Arial, sans-serif;
-            /* background-color: rgb(232, 236, 237); */
+            background-color: rgb(232, 236, 237);
             background-color: #b8d5ff;
 
         }
@@ -513,14 +517,12 @@ body {
         margin-left: 120px;
 
     }
-</style>
+</style> -->
 </head>
 <body>
-<div class="hd">
+<!-- <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
-          <!-- <li><a href="gmsuccess.php">Home</a></li> -->
-
             <li id="grp">
                 <a href="#">Add a Member</a>
                 <ul class="sub-menu">
@@ -533,14 +535,11 @@ body {
             <li><a href="remove.php">Remove</a></li>
             <li><a href="suspend.php">Suspend</a></li>
             <li><a href="unsuspend.php">Suspended Members</a></li>
-            <!-- <li><a href="group_view.php">Group View</a></li> -->
             <li><a href="group_view.php">Group View</a></li>
-            <!-- <li><a href="gmstatus.php?user_id=<?//php echo $id;?>">Status</a></li> -->
             <li><a href="gmstatus.php">Status</a></li>
             <li><a href="login.html">Logout</a></li>
-
         </nav> 
-</div>
+    </div> -->
 
 
 

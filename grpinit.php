@@ -1,7 +1,11 @@
 <?php
 
+
+
 include "conn.php";
-session_start();
+include "nav.html";
+include "button.html";
+
 if (isset($_GET['muid'])) {
     $uid1 = $_GET['muid'];
     $_SESSION['uid1']=$uid1;
@@ -40,20 +44,7 @@ if (isset($_GET['muid'])) {
 }
 
 
-//now with status column also
 
-/*
-
-                 if ($i['status'] == 'accept') {
-                     echo "<td class='status accepted'><a href='upload.php' style='background-color: green; color: #fff;' id='A'>Accepted</a></td>";
-                 } elseif ($i['status'] == 'reject') {
-                     echo "<td class='status rejected'><a href='#' class='btn btn-danger' id='R'>Rejected</a></td>";
-                 } elseif ($i['status'] == 'pending') {
-                     echo "<td class='status pending'><a href='#' class='custom-button' id='P'>$i[status]</a></td>";
-                 } else {
-                     echo "<td>$i[status]</td>";
-                 }
-*/
 ?>
 
 
@@ -64,7 +55,7 @@ if (isset($_GET['muid'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!-- <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -586,14 +577,12 @@ if (isset($_GET['muid'])) {
         margin-left: 120px;
 
     }
-</style>
+</style> -->
 </head>
 <body>
-<div class="hd">
+<!-- <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
-          <!-- <li><a href="gmsuccess.php">Home</a></li> -->
-
             <li id="grp">
                 <a href="#">Add a Member</a>
                 <ul class="sub-menu">
@@ -606,14 +595,11 @@ if (isset($_GET['muid'])) {
             <li><a href="remove.php">Remove</a></li>
             <li><a href="suspend.php">Suspend</a></li>
             <li><a href="unsuspend.php">Suspended Members</a></li>
-            <!-- <li><a href="group_view.php">Group View</a></li> -->
             <li><a href="group_view.php">Group View</a></li>
-            <!-- <li><a href="gmstatus.php?user_id=<?//php echo $id;?>">Status</a></li> -->
             <li><a href="gmstatus.php">Status</a></li>
             <li><a href="login.html">Logout</a></li>
-
         </nav> 
-    </div>
+    </div> -->
     <div class="data">
         <p class="pp" id="req">LIST OF MEMBERS</p>
     

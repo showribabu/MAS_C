@@ -72,20 +72,24 @@ background-color: darkblue;
 </head>
 <body>
 <?php
-        session_start();
+
+
+include "conn.php";
+include "nav.html";
+include "button.html";
       
         $group_type=$_SESSION['group_type'];
         $group_number=$_SESSION['group_number']; 
         $gm_id=$_SESSION['gmid'];
         global  $group_type, $group_number, $gm_id;
- include "header.php";
+
 
 
   ?>
     <div class="container">
     <h1>Members List</h1>  
         <?php
-        // session_start();
+        // 
 
         // $group_type=$_SESSION['group_type'];
         // $group_number=$_SESSION['group_number'];
@@ -100,7 +104,7 @@ background-color: darkblue;
         // $pass='';
         // $db='MAS';
         // $con=mysqli_connect($host,$user,$pass,$db);
-        include "conn.php";
+  
         
      
  
@@ -329,10 +333,16 @@ background-color: darkblue;
     // }
     ?>
     </div>
-    
-    <!-- <footer>
-        <p>MULTI PARTY AUTHENTICATION SYSTEM</p>
-    </footer>  -->
+    <div class='pic'>
+            <img src="gm1.jpg" alt="group manager">
+    </div>
+
+<footer>
+        <p>MAS : MULTI PARTY AUTHENTICATION SYSTEM</p>
+</footer>
+
+<p class="data2"><?php echo $_SESSION['name'];?></p>
+
  </body>
  </html>
  

@@ -5,6 +5,8 @@
 <head>
     <title>MultiParty Authentication System</title>
 <style>
+
+    /*Navigation bar */
     body {
             margin: 0;
             font-family:sans-serif;
@@ -106,20 +108,34 @@
             display: block;
         }
     
+
+/*Footer*/
+        footer {
+        text-align: center;
+        padding: 3px;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        color: white;
+        font-weight: bold;
+        background-color: #100a89;
+    }
+    
+
 </style>
    </head>
 <body>
 
 
-    <div class="hd">
+<div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
 
             <li><a href="group.php">Home</a></li>
             <li id="grp"><a href="#">Add a Member</a>
                 <ul class="sub-menu">
-                    <li ><a href="request.php" class='btn btn-danger'>From Requestlist</a></li>
-                    <li><a href="groupinit.php" class='btn btn-danger'>By Selecting</a></li>
+                    <li ><a href="request.php" >From Requestlist</a></li>
+                    <li><a href="groupinit.php" >By Selecting</a></li>
                 </ul>
             </li>
             <li><a href="remove.php">Remove</a></li>
@@ -127,8 +143,8 @@
             <li><a href="unsuspend.php">Suspended Members</a></li>
             <li><a href="group_view.php">Group View</a></li>
             <li><a href="gmstatus.php">Status</a></li>
-            <li><a href="dataaccess.php">Data Access</a>
-                <ul>
+            <li id="grp"><a href="#" >Data Access</a>
+                <ul class="sub-menu">
                     <li><a href="fileupload.php">Upload file</a></li>
                     <li><a href="files.php">Access file</a></li>
                 </ul>
@@ -137,7 +153,6 @@
         </nav>
     </div>
 
-    <!-- Page Content Goes Here -->
 </body>
 
 </html>

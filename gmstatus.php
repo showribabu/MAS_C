@@ -1,21 +1,11 @@
 <?php
 
+
 include "conn.php";
-session_start();
-//now with status column also
+include "nav.html";
+include "button.html";
 
-/*
 
-                 if ($i['status'] == 'accept') {
-                     echo "<td class='status accepted'><a href='upload.php' style='background-color: green; color: #fff;' id='A'>Accepted</a></td>";
-                 } elseif ($i['status'] == 'reject') {
-                     echo "<td class='status rejected'><a href='#' class='btn btn-danger' id='R'>Rejected</a></td>";
-                 } elseif ($i['status'] == 'pending') {
-                     echo "<td class='status pending'><a href='#' class='custom-button' id='P'>$i[status]</a></td>";
-                 } else {
-                     echo "<td>$i[status]</td>";
-                 }
-*/
 ?>
 
 
@@ -26,7 +16,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+
+    <!-- <style>
 
     body {
             margin: 0;
@@ -573,10 +564,10 @@ session_start();
 
     }
 
-</style>
+</style> -->
 </head>
 <body>
-    <div class="hd">
+    <!-- <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
 
@@ -600,7 +591,7 @@ session_start();
             </li>
             <li><a href="index.php">Logout</a></li>
         </nav>
-    </div>
+    </div> -->
     <div class="data">
         
             <p class="pp" id="req">LIST OF MEMBERS</p>
@@ -644,20 +635,6 @@ session_start();
                 {
                     echo"<script>alert('Nodata Found');</script>";
                 }
-
-
-              
-
-                //  if ($i['status'] == 'a') {
-                //      echo "<td class='status accepted'><a href='upload.php' class='btn btn-success' id='A'>Accepted</a></td>";
-                //  } elseif ($i['status'] == 'r') {
-                //      echo "<td class='status rejected'><a href='#' class='btn btn-danger' id='R'>$i[status]</a></td>";
-                //  } elseif ($i['status'] == 'Pending') {
-                //      echo "<td class='status pending'><a href='#' class='btn btn-warning' id='P'>$i[status]</a></td>";
-                //  } else {
-                //      echo "<td>$i[status]</td>";
-                //  }
-
            
             
             ?>

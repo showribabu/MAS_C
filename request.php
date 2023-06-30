@@ -1,7 +1,10 @@
 <?php
 
+
+
 include "conn.php";
-session_start();
+include "nav.html";
+include "button.html";
 //now with status column also
 
 /*
@@ -28,7 +31,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!-- <style>
 
 body {
             margin: 0;
@@ -40,7 +43,7 @@ body {
         .hd 
         {
             margin-top:0px;
-            /*background-color: white;*/
+            
             background-color: #100a89;
             border-radius: 5px;  
             /*border-top: 10px solid darkblue;*/
@@ -542,14 +545,12 @@ body {
 
     }
 
-</style>
+</style> -->
 </head>
 <body>
-<div class="hd">
+<!-- <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
-          <!-- <li><a href="gmsuccess.php">Home</a></li> -->
-
             <li id="grp">
                 <a href="#">Add a Member</a>
                 <ul class="sub-menu">
@@ -562,14 +563,11 @@ body {
             <li><a href="remove.php">Remove</a></li>
             <li><a href="suspend.php">Suspend</a></li>
             <li><a href="unsuspend.php">Suspended Members</a></li>
-            <!-- <li><a href="group_view.php">Group View</a></li> -->
             <li><a href="group_view.php">Group View</a></li>
-            <!-- <li><a href="gmstatus.php?user_id=<?//php echo $id;?>">Status</a></li> -->
             <li><a href="gmstatus.php">Status</a></li>
             <li><a href="login.html">Logout</a></li>
-
         </nav> 
-    </div>
+    </div> -->
     <div class="data">
         
             <p class="pp" id="req">LIST OF MEMBERS</p>

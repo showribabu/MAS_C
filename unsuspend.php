@@ -61,13 +61,17 @@
 <body>
 <?php
 //   include "header2.php";
-session_start();
+
+
+include "conn.php";
+include "nav.html";
+include "button.html";
 
 $group_type=$_SESSION['group_type'];
 $group_number=$_SESSION['group_number']; 
 $gm_id=$_SESSION['gmid'];
 global  $group_type, $group_number, $gm_id;
-  include "header.php";
+
 
   ?>
     <div class="container">   
@@ -80,7 +84,7 @@ global  $group_type, $group_number, $gm_id;
 //    $pass='';
 //    $db='MAS';
 //    $con=mysqli_connect($host,$user,$pass,$db);
-include "conn.php";
+
    
 
 if(!$con)
@@ -325,10 +329,16 @@ $ix=$row3['ix'];
         mysqli_close($con);
     ?>
     </div>
-    
-    <!-- <footer>
-        <p>MULTI PARTY AUTHENTICATION SYSTEM</p>
-    </footer>  -->
+    <div class='pic'>
+            <img src="gm1.jpg" alt="group manager">
+    </div>
+
+    <p class="data2"><?php echo $_SESSION['name'];?></p>
+
+    <footer>
+        <p>MAS : MULTI PARTY AUTHENTICATION SYSTEM</p>
+    </footer>
+
  </body>
  </html>
 

@@ -201,67 +201,44 @@ body {
 </style>
 </head>
 <body>
-<div class="hd">
+    <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
-          <!-- <li><a href="gmsuccess.php">Home</a></li> -->
 
-            <li id="grp">
-                <a href="#">Add a Member</a>
+            <li><a href="group.php">Home</a></li>
+            <li id="grp"><a href="#">Add a Member</a>
                 <ul class="sub-menu">
-                    <li ><a href="request.php" class='btn btn-danger'>From Requestlist</a></li>
-                    
-                    <li><a href="groupinit.php" class='btn btn-danger'>By Selecting</a></li>
-
+                    <li ><a href="request.php" >From Requestlist</a></li>
+                    <li><a href="groupinit.php" >By Selecting</a></li>
                 </ul>
             </li>
             <li><a href="remove.php">Remove</a></li>
             <li><a href="suspend.php">Suspend</a></li>
             <li><a href="unsuspend.php">Suspended Members</a></li>
-            <!-- <li><a href="group_view.php">Group View</a></li> -->
             <li><a href="group_view.php">Group View</a></li>
-            <!-- <li><a href="gmstatus.php?user_id=<?//php echo $id;?>">Status</a></li> -->
             <li><a href="gmstatus.php">Status</a></li>
-            <li><a href="login.html">Logout</a></li>
-
-        </nav> 
+            <li id="grp"><a href="#" >Data Access</a>
+                <ul class="sub-menu">
+                    <li><a href="fileupload.php">Upload file</a></li>
+                    <li><a href="files.php">Access file</a></li>
+                </ul>
+            </li>
+            <li><a href="index.php">Logout</a></li>
+        </nav>
     </div>
     
 
 
-    <div class='main'> 
     <div class='pic'>
             <img src="gm1.jpg" alt="group manager">
     </div>
-        <!-- <div class='data2'>
-            <?php
-            
-            // foreach($rr as $i)
-            // {
-            //     // echo "<p style='font-weight:bold;font-size:20px;'>USER ID: $i[user_id]</p>";
-            //     // echo "<p style='font-weight:bold;font-size:20px;'>NAME : XXXXXXXXXXXXXXX </p>";
-            //     // echo "<p style='font-weight:bold;font-size:20px;'>Privilege : Group Manager</p>";
-            //     // echo "<p style='font-weight:bold;font-size:20px;'>TYPE : $i[type]</p>";
-            //     // echo "<p style='font-weight:bold;font-size:20px;'>group_number :XXXXXX </p>";
 
-            //     // echo "<p>USER ID: $i[user_id]</p>";
-            //     echo "<p>NAME : $i[name] </p>";
-            //     $_SESSION['name']=$i['name'];
-            //     echo "<p>Privilege : Group Manager</p>";
-            //     echo "<p>TYPE : $i[type]</p>";
-            //     // echo "<p>group_number :XXXXXX </p>";
-
-   
-            // }
-
-            ?>
-
-        </div> -->
-    </div>
-    <p class="data3"><?php echo $_SESSION['name'];?></p>
-    <footer>
+<footer>
         <p>MAS : MULTI PARTY AUTHENTICATION SYSTEM</p>
-    </footer>
+</footer>
+
+<p class="data2"><?php echo $_SESSION['name'];?></p>
+
 </body>
 </html>
 

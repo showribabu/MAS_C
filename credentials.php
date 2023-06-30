@@ -11,7 +11,6 @@
 
 include "conn.php";
 
-session_start();
 
 if (isset($_GET['user_id'])) {
     $_SESSION['uid2'] = $_GET['user_id'];

@@ -1,7 +1,10 @@
 <?php
-include "conn.php";
 
-session_start();
+
+include "conn.php";
+include "nav.html";
+include "button.html";
+
 if(isset($_POST['user_id']))
 {
     $user_id=$_POST['user_id'];
@@ -33,8 +36,8 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Manager</title>
 
-    <style>
-        body {
+<!-- <style>
+     body {
             margin: 0;
             font-family: Arial, sans-serif;
             /* background-color: rgb(232, 236, 237); */
@@ -400,15 +403,14 @@ else
     display: block;
 }
         
-    </style>
+</style>
+ -->
 </head>
 
 <body>
-<div class="hd">
+<!-- <div class="hd">
         <h2>GROUP MANAGER</h2>
         <nav>
-          <!-- <li><a href="gmsuccess.php">Home</a></li> -->
-
             <li id="grp">
                 <a href="#">Add a Member</a>
                 <ul class="sub-menu">
@@ -421,14 +423,11 @@ else
             <li><a href="remove.php">Remove</a></li>
             <li><a href="suspend.php">Suspend</a></li>
             <li><a href="unsuspend.php">Suspended Members</a></li>
-            <!-- <li><a href="group_view.php">Group View</a></li> -->
             <li><a href="group_view.php">Group View</a></li>
-            <!-- <li><a href="gmstatus.php?user_id=<?//php echo $id;?>">Status</a></li> -->
             <li><a href="gmstatus.php">Status</a></li>
             <li><a href="login.html">Logout</a></li>
-
         </nav> 
-    </div>
+    </div> -->
 
     <?php  
     $gmid=$_SESSION['gmid'];
@@ -443,7 +442,7 @@ else
     <div class='pic'>
             <img src="gm1.jpg" alt="group manager">
     </div>
-        <div class='data2'>
+        <div class='data4'>
             <?php
             
             foreach($rr as $i)
