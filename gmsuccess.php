@@ -405,29 +405,41 @@ else
         
 </style>
  -->
+
+ <style>
+
+    .fimg 
+    {
+        display:flex;
+        flex-wrap: wrap;
+        background-color: white;
+        align-items:center;
+        height:fit-content;
+        width:600px;
+        margin-top:50px;
+        margin-left:28%;
+        overflow:scroll;
+        max-height: 500px;
+        scroll-behavior: smooth;
+        
+    }
+
+    .in 
+    {
+        background-color: blue;
+        margin:6px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        color:white;
+        font-weight:bold;
+        padding:6px;
+
+    }
+</style>
 </head>
 
 <body>
-<!-- <div class="hd">
-        <h2>GROUP MANAGER</h2>
-        <nav>
-            <li id="grp">
-                <a href="#">Add a Member</a>
-                <ul class="sub-menu">
-                    <li ><a href="request.php" class='btn btn-danger'>From Requestlist</a></li>
-                    
-                    <li><a href="groupinit.php" class='btn btn-danger'>By Selecting</a></li>
-
-                </ul>
-            </li>
-            <li><a href="remove.php">Remove</a></li>
-            <li><a href="suspend.php">Suspend</a></li>
-            <li><a href="unsuspend.php">Suspended Members</a></li>
-            <li><a href="group_view.php">Group View</a></li>
-            <li><a href="gmstatus.php">Status</a></li>
-            <li><a href="login.html">Logout</a></li>
-        </nav> 
-    </div> -->
 
     <?php  
     $gmid=$_SESSION['gmid'];
@@ -438,10 +450,12 @@ else
         echo "<script>alert('Error executing the query');</script>";
     }
     ?>
-  <div class='main'> 
-    <div class='pic'>
+<!-- Image AND Data -->
+
+    <div class='main'> 
+        <div class='pic'>
             <img src="gm1.jpg" alt="group manager">
-    </div>
+        </div>
         <div class='data4'>
             <?php
             
@@ -459,8 +473,22 @@ else
             ?>
 
         </div>
-</div>
+    </div>
 
+
+    <div class="fimg">
+        <?php 
+        for($i=1;$i<=20;$i++)
+        {
+
+            echo "<div class='in'><a href='#' style='text-style:none;'><img src='fimg.png'></a>file.$i</div>";
+        }
+        
+        ?>
+    </div>
+
+
+    <!-- Footer  -->
     <footer>
         <p>MAS : MULTI PARTY AUTHENTICATION SYSTEM</p>
     </footer>
