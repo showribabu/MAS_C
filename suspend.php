@@ -75,6 +75,8 @@ background-color: darkblue;
 
 
 include "conn.php";
+session_start();
+
 include "nav.html";
 include "button.html";
       
@@ -334,7 +336,8 @@ include "button.html";
     ?>
     </div>
     <div class='pic'>
-            <img src="gm1.jpg" alt="group manager">
+               <!-- <img src="gm1.jpg" alt="group manager"> -->
+               <img src="<?php echo $_SESSION['photo_location'];?>" alt="group manager">
     </div>
 
 <footer>

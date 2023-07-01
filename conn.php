@@ -33,8 +33,10 @@ if($r2) {
         $_SESSION['ix']=$i['ix'];
         $_SESSION['spk']=$i['spk'];
         $_SESSION['s']=$i['s'];
+
     }
 }
+session_abort();
 
 
 ?>

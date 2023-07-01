@@ -198,6 +198,8 @@ body{
             
             <?php
 include "conn.php";
+session_start();
+
 if (isset($_GET['user_id'])) {
     $id = $_GET['user_id'];
 

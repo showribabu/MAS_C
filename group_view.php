@@ -75,6 +75,8 @@
 
 
 include "conn.php";
+session_start();
+
 include "nav.html";
 include "button.html";
      $group_type=$_SESSION['group_type'];
@@ -168,7 +170,8 @@ include "button.html";
         ?>
     </div>
     <div class='pic'>
-            <img src="gm1.jpg" alt="group manager">
+              <!-- <img src="gm1.jpg" alt="group manager"> -->
+              <img src="<?php echo $_SESSION['photo_location'];?>" alt="group manager">
     </div>
 
     <p class="data2"><?php echo $_SESSION['name'];?></p>
