@@ -91,7 +91,8 @@ echo"<br>qpow gpk:".$qgpk;
 echo"<br>mv:".$mv;
 
 
-
+date_default_timezone_set('Asia/Kolkata');
+$currentDateTime = date('Y-m-d H:i:s');
 
 
 
@@ -189,14 +190,16 @@ $bindx=hash('sha512',$qpowu*$ix);
 }
 
 
-$sql4 = 'INSERT INTO group_data (user_id,group_type,admin_id,group_id,mv,group_number,member_id,pgk,bi,privilege,activity_status) VALUES ("'.$gmid.'", "'.$group_type.'", "'.$hadmid.'", "'.$hgrpid.'", "'.$mv.'", "'.$group_number.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","gm","active")';
+
+
+$sql4 = 'INSERT INTO group_data (user_id,group_type,admin_id,group_id,mv,group_number,member_id,pgk,bi,privilege,activity_status,creation_time) VALUES ("'.$gmid.'", "'.$group_type.'", "'.$hadmid.'", "'.$hgrpid.'", "'.$mv.'", "'.$group_number.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","gm","active","'.$currentDateTime.'")';
 $r4 = mysqli_query($con, $sql4);
 if ($r4 && mysqli_affected_rows($con) > 0) {
     echo "<script>alert('Group data initialized.....!!!');</script>";
 } 
 else 
 {
-    $sql3 = 'UPDATE group_data SET user_id = "'.$gmid.'", group_type = "'.$group_type.'", admin_id = "'.$hadmid.'", group_id = "'.$hgrpid.'", mv = "'.$mv.'", group_number = "'.$group_number.'", member_id = "'.$hmid.'",  pgk = "'.$pgpk.'", bi = "'.$bindx.'", activity_status="active", privilege="gm"  WHERE user_id="'.$gmid.'"';
+    $sql3 = 'UPDATE group_data SET user_id = "'.$gmid.'", group_type = "'.$group_type.'", admin_id = "'.$hadmid.'", group_id = "'.$hgrpid.'", mv = "'.$mv.'", group_number = "'.$group_number.'", member_id = "'.$hmid.'",  pgk = "'.$pgpk.'", bi = "'.$bindx.'", activity_status="active", privilege="gm",creation_time="'.$currentDateTime.'" WHERE user_id="'.$gmid.'"';
     $r5 = mysqli_query($con, $sql3);
     if ($r5 && mysqli_affected_rows($con) > 0) 
     {

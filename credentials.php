@@ -346,7 +346,8 @@ if (isset($_GET['user_id'])) {
 
     }
 
-
+    date_default_timezone_set('Asia/Kolkata');
+    $currentDateTime = date('Y-m-d H:i:s');
 
 
 
@@ -356,7 +357,7 @@ if (isset($_GET['user_id'])) {
 
 if($group_type=='B')
 {
-    $sql5='INSERT INTO group_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status) values("'.$uid2.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","member","active")';
+    $sql5='INSERT INTO group_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,creation_time) values("'.$uid2.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","member","active","'.$currentDateTime.'")';
 
     //INSERT INTO `group_data`(`user_id`, `group_type`, `group_number`, `admin_id`, `group_id`, `mv`, `member_id`, `pgk`, `bi`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]')
     $r6 = mysqli_query($con, $sql5);
@@ -380,7 +381,8 @@ if($group_type=='B')
 else 
 {
 
-    $sql5='INSERT INTO group_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status) values("'.$uid2.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","member","active")';
+
+    $sql5='INSERT INTO group_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,creation_time) values("'.$uid2.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","member","active","'.$currentDateTime.'")';
 
     //INSERT INTO `group_data`(`user_id`, `group_type`, `group_number`, `admin_id`, `group_id`, `mv`, `member_id`, `pgk`, `bi`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]')
     $r6 = mysqli_query($con, $sql5);
@@ -388,7 +390,7 @@ else
         echo "<script>alert('Member added successfully!!!');</script>";
     } else {
 
-        $sql6 = 'UPDATE group_data SET user_id = "'.$uid2.'", group_type = "'.$group_type.'", group_number = "'.$group_number.'", admin_id = "'.$admin_id.'", group_id = "'.$group_id.'", mv = "'.$mv.'", member_id = "'.$hmid.'",pgk = "'.$pgpk.'", bi = "'.$bindx.'",activity_status="active", privilege="member" where user_id="'.$uid2.'" ';
+        $sql6 = 'UPDATE group_data SET user_id = "'.$uid2.'", group_type = "'.$group_type.'", group_number = "'.$group_number.'", admin_id = "'.$admin_id.'", group_id = "'.$group_id.'", mv = "'.$mv.'", member_id = "'.$hmid.'",pgk = "'.$pgpk.'", bi = "'.$bindx.'",activity_status="active", privilege="member",$currentDateTime="'.$currentDateTime.'" where user_id="'.$uid2.'" ';
 
         $r7=mysqli_query($con, $sql6);
         if ($r7 && mysqli_affected_rows($con) > 0) {
