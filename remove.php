@@ -91,8 +91,8 @@ $gmid=$_SESSION['gmid'];
         
         <p class="pp" id="req">LIST OF MEMBERS</p>
 
-    <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:100px; width:780px;  text-align:center; align-items:center;">
-        <tr id="tr1"><th>USER ID</th><th>Group Number</th><th>SUSPEND/REMOVE</th></tr>
+    <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:80px; width:780px;  text-align:center; align-items:center;">
+        <tr id="tr1"><th>USER ID</th><th>Group Number</th><th>REMOVE</th></tr>
 <?php
 
 

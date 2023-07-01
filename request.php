@@ -39,9 +39,9 @@ include "button.html";
 
     <div class="data">
         
-            <p class="pp" id="req">LIST OF MEMBERS</p>
+            <p class="pp" id="req">REQUESTING FOR MEMBERSHIP</p>
 
-        <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:80px; width:780px;  text-align:center; align-items:center;">
+        <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:80px; width:850px;  text-align:center; align-items:center;">
             <tr id="tr1"><th>Request ID</th><th>Message</th><th>user_id</th><th>ACCEPT</th><th>REJECT</th></tr>
         
             <?php
@@ -53,6 +53,7 @@ include "button.html";
 
 $gmid=$_SESSION['gmid'];
 $sql1='select * from requests where request_to="'.$gmid.'" and r_status="p"';
+
 // $sql1='select * from requests where user_id !="'.$gmid.'" and requestid !=""';
 
 
@@ -81,9 +82,14 @@ if($r1)
 
                 //  echo "<td colspan='2'><a href='requests.php?user_id={$i['request_from']}' class='btn btn-success'>ACCEPT</a> <a href='requestss.php?user_id={$i['request_from']}' class='btn btn-danger'>REJECT</a></td>";
 
-                echo "<td colspan='2'><a href='requests.php?user_id={$i['request_from']}' class='btn btn-success'>ACCEPT</a> <a href='requestss.php?user_id={$i['request_from']}' class='btn btn-danger'>REJECT</a></td>";
-
                 
+                //here we need to add condition for the remove request....
+                
+                //then stsuts as remove
+
+                echo "<td colspan='2'><a href='requests.php?user_id={$i['request_from']}' class='btn btn-success'>ACCEPT</a> <a href='requestss.php?user_id={$i['request_from']}' class='btn btn-danger'>REJECT</a></td>";
+                
+               
                 echo "</tr>";
 
 

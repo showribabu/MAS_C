@@ -27,4 +27,29 @@ if(isset($_GET['user_id']))
     }
 }
 
+
+
+                /*Accept button*/
+
+                if(isset($_GET['auser_id']))
+                {
+                    $_SESSION['uid3'] = $_GET['auser_id'];
+                    $uid3 = $_SESSION['uid3'];
+                    //members id...id1
+                    $gmid=$_SESSION['gmid'];
+                
+                
+                    //from->to
+                
+                    $sql12='update requests set r_status="ar" where request_to="'.$gmid.'" and request_from="'.$uid3.'" and request_id="'.$request_id.'"';
+                    $rr=mysqli_query($con,$sql12);
+                    if($rr)
+                    {
+                        echo"<script>alert('Accept Button Clicked');</script>";
+                    
+                        header("Location: rmv.php?user_id=" . urlencode($uid3));    
+                    }
+                }
+
+
 ?>

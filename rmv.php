@@ -116,6 +116,10 @@ if (isset($_GET['user_id'])) {
     }
 
 
+/*  HERE one UPDATE IS THAT backup_data : now add time in that table with the time of the backup data inserted...*/
+
+
+
     /*TYPE A*/
 
     if($group_type=='A') 

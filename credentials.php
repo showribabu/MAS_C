@@ -360,23 +360,25 @@ if($group_type=='B')
     $sql5='INSERT INTO group_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,creation_time) values("'.$uid2.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","member","active","'.$currentDateTime.'")';
 
     //INSERT INTO `group_data`(`user_id`, `group_type`, `group_number`, `admin_id`, `group_id`, `mv`, `member_id`, `pgk`, `bi`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]')
+try {
     $r6 = mysqli_query($con, $sql5);
-    if ($r6 && mysqli_affected_rows($con) > 0) 
-    {
+
+    if ($r6 && mysqli_affected_rows($con) > 0) {
         //update remain members data....
         $sql123='update group_data set member_id="'.$hmid.'" ,pgk="'.$pgpk.'",bi="'.$bindx.'"  where group_number="'.$group_number.'" and activity_status="active"';
         $r7=mysqli_query($con, $sql123);
-        if ($r7 && mysqli_affected_rows($con) > 0) 
-        {
+        if ($r7 && mysqli_affected_rows($con) > 0) {
             echo "<script>alert('Member added successfully!!!');</script>";
-        } 
-        else 
-        {
-                echo "<script>alert('Failed to update group data.');</script>";
-     
+        } else {
+            echo "<script>alert('Failed to update group data.');</script>";
+
         }
 
-    }  
+    }
+}
+catch (Exception $e ){
+    echo "<script>alert('User with userid already exists!!!');</script>";
+} 
 }
 else 
 {

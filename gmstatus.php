@@ -48,7 +48,7 @@ include "button.html";
     </div> -->
     <div class="data">
         
-            <p class="pp" id="req">LIST OF MEMBERS</p>
+            <p class="pp" id="req">STATUS OF REQUESTS</p>
 
         <table class="tb"  border="5px" cellpadding="8px" align="center" cellspacing="5px" style="height:80px; width:780px;  text-align:center; align-items:center;">
             <tr id="tr1"><th>USER ID</th><th>MEMBER SELECTION</th><th>STATUS</th></tr>
