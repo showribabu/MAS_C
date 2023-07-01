@@ -1,65 +1,258 @@
 
 <?php
+   include 'conn.php';
+   session_start();
+   
+   if(isset($_POST['user_id']) && isset($_POST['privilege']))
+   {   
+       $user_id = $_POST['user_id'];
+       $group_number = $_POST['group_number'];
+       $group_type = $_POST['group_type'];
+       $privilege = $_POST['privilege'];
+       // echo $user_id.','.$privilege;?>
+       <script> console.log('<?php echo $user_id ?>','<?php echo $privilege ?>');</script>
+       <?php
+       //stores gm userid as gmid
+    $_SESSION['mid']=$user_id;
+    $_SESSION['group_number']=$group_number;
+    $_SESSION['group_type']=$group_type;
+    $_SESSION['privilege']=$privilege;
 
-    session_start();
 
-    $user_id = $_SESSION['user_id'];
-    $group_num = $_SESSION['group_number'];
-    $group_type = $_SESSION['group_type'];
-    $privilege = $_SESSION['privilege'];
-
-    // $_SESSION['user_id'] = $user_id;
-    // $_SESSION['group_num'] = $group_num;
-    // $_SESSION['privilege'] = $privilege;
-
-    include 'connector.php';
-    $query1 = "select * from files where group_num = '$group_num' ";
-    $result = mysqli_query($con,$query1);  
-    // $row = mysqli_fetch_assoc($result);   
+}
+else
+{
+    echo "Not coming";
+}   
  
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File view</title>
+    <title>MultiParty Authentication System</title>
     <link rel="stylesheet" href="./css/file.css">
+    <style>
+    body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: sans-serif;
+            /* Change font style to sans-serif */
+            background-color:#b8d5ff;
+            overflow: hidden;
+        }
+        .container {
+            width: 600px;
+            height: 360px;
+            margin: auto auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top:60px;
+        }
 
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #100a89;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        header img {
+            margin-left: 10px;
+        }
+
+        .profile {
+            margin-top: 5px;
+            margin-left: 5px;
+            background-color: white;
+        }
+        .prof {
+            flex-direction:row;
+        }
+        .txt { 
+        position: absolute;
+        top: 16%;
+        width: 18%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #1f84f7;
+        }
+
+        /* Added styling for the sub-menu */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #100a89;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        nav ul li:hover>ul {
+            display: inherit;
+        }
+
+        nav ul ul li {
+            float: none;
+            width: 100%;
+        }
+
+        nav ul ul a {
+            padding: 10px 16px;
+        }
+
+        nav ul ul a:hover {
+            text-decoration: underline;
+            /* Add underline only on hover */
+        }
+
+        footer {
+            background-color: #100a89;
+            padding: 1px;
+            /* Decrease the height of the footer */
+            color: white;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-weight: bold;
+        }
+        
+    </style>
 </head>
 <body>
     
+<?php  
+$mid = $_SESSION['mid'];
+$query2 = "select * from user where user_id = '$mid'";
+$result2 = mysqli_query($con,$query2);
+$row = mysqli_fetch_assoc($result2);
+$name = $row['first_name']." ".$row['last_name'];
+
+    ?>
+    <header>
+        <div class="prof">
+        <img class="profile" src="user.jpg" alt="User Image" style="width: 50px; height: 50px;">
+        <div class="txt">
+        <h3><?php echo $name;?> </h3>
+        </div>
+    </div>
+        <nav>
+            <ul>
+                <li><a href="pageformat.php">Home</a></li>
+                <li><a href="requestmembership.php">Request Membership</a>
+                    <ul>
+                        <li><a href="requestform1.php">Become Manager</a></li>
+                        <li><a href="requestform2.php">Become Member</a></li>
+                        <li><a href="requestform3.php">Request for Removal</a></li>
+                    </ul>
+                </li>
+                <li><a href="dataaccess.php">Data Access</a>
+                    <ul>
+                        <li><a href="fileupload.php">Upload file</a></li>
+                        <li><a href="file.php">Access file</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="requestlist.php">Request List</a>
+                    <ul>
+                        <li><a href="sentlist.php">Sent</a></li>
+                        <li><a href="receivedlist.php">Received</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<div id="container_table" style="position:absolute; top:200px; border:2px solid black; width:80%;">
     <table>
-        <thead>
-         <th>File Name</th>
-         <th>Button</th>
-        </thead>
-        <tbody>
-            <?php
-            while(  $row = mysqli_fetch_assoc($result)  )
-            {
-             ?>
-            <tr>
-             <td><?php echo $row['file_name'] ?></td>
-             <td><form method="post" class=form1>
-                 <input type="hidden" name="file_id" value="<?php echo $row['file_id'] ?>">
-                 <input type="hidden" name="group_num" value="<?php echo $group_num ?>">
-                 <input type="hidden" name="group_type" value="<?php echo $group_type ?>">
-                 <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
-                 <button type="submit" name="enter"> Enter </button>
-                 </form>
-             </td>
-            </tr>
-            <?php
-            }
-            ?>
-        </tbody>
+            
+            <tbody>
+                <?php
+                // include 'conn.php';
+                $group_number = $_SESSION['group_number'];
+                $group_type = $_SESSION['group_type'];
+                $mid = $_SESSION['mid'];
+                $query_file = "select * from files where group_number = '$group_number' ";
+                $result_file = mysqli_query($con,$query_file);  
+
+                $count = 0; // Counter to keep track of the column count
+                echo "<tr>";
+                    while ($row_file = mysqli_fetch_assoc($result_file)) 
+                    {
+                    echo "<td>";
+                    ?>
+                    <form method="post" action="file.php" class=form1 >
+                    <input type="hidden" name="file_id" value="<?php echo $row_file['file_id'] ?>">
+                    <input type="hidden" name="group_number" value="<?php echo $group_number ?>">
+                    <input type="hidden" name="group_type" value="<?php echo $group_type ?>">
+                    <input type="hidden" name="user_id" value="<?php echo $mid ?>">
+                    <button type="submit" name="enter"> 
+                        <img style="height:60px; width:60px;" src="fileicon.png" alt="Button" />    
+                    </button>
+                    </form>
+                    <?php echo $row_file['file_name'] ?>
+                    <?php
+                    $count++;
+                    echo "</td>";
+
+                    if ($count % 3 == 0) 
+                    {
+                        // Start a new row
+                        echo "</tr><tr>";
+                    }
+
+
+                    if ($count % 3 == 0) {
+                        // Close the row after displaying three columns
+                        echo "</tr>";
+                    }
+                    }
+                 ?>
+                </tbody>
     </table>
-    <?php
+</div>
 
 
+
+<?php
 if (isset($_POST['enter']))
 {
     $file_id = $_POST['file_id'];

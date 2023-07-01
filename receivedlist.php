@@ -69,7 +69,7 @@ if (isset($_POST['act']) || isset($_POST['rjt'])) {
     }
     .table-container {
         overflow-y: scroll;
-        max-height: 350px;
+        max-height: 325px;
     }
     </style>
 </head>
@@ -87,16 +87,16 @@ if (isset($_POST['act']) || isset($_POST['rjt'])) {
                     <?php
                     include 'conn.php';
                     $request_to=$mid;
-                    $query = "SELECT request_from, message, r_status FROM requests where request_to='$request_to'";
+                    $query = "SELECT group_number, message, r_status FROM requests where request_to='$request_to'";
                     $res = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($res)) {
                         ?>
                         <tr>
-                            <td><?php echo $row['request_from']; ?></td>
+                            <td><?php echo $row['group_number']; ?></td>
                             <td><?php echo $row['message']; ?></td>
                             <td>
-                                <button type="submit" name="act" value="<?php echo $row['request_from']; ?>" class="at">Accept</button>
-                                <button type="submit" name="rjt" value="<?php echo $row['request_from']; ?>" class="rt">Reject</button>
+                                <button type="submit" name="act" value="<?php echo $row['group_number']; ?>" class="at">Accept</button>
+                                <button type="submit" name="rjt" value="<?php echo $row['group_number']; ?>" class="rt">Reject</button>
                             </td>
                         </tr>
                     <?php } ?>

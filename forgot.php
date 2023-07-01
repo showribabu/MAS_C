@@ -33,7 +33,7 @@
                     
                 <div class="form-group ">
                    
-                    <input class="inpt" type="text" name="user_idq" id="user_idq"  hidden style="position:absolute;">
+                    <input class="inpt" type="text" name="user_idq" id="user_idq"  hidden style="postion:absolute";>
                 </div>
                     <div>
                         <i class="fa fa-user lock"></i>
@@ -206,7 +206,7 @@ togglepasswordcpassword.addEventListener('click', function() {
 
 
 <?php
-include "connector.php";
+include "conn.php";
 
 if (isset($_POST['next'])) {
     $user_id = $_POST['user_id'];

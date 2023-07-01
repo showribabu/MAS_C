@@ -2,10 +2,10 @@
 include 'conn.php';
 include 'pageformat.php';
 //session_start();
-$mid = $_SESSION['$mid'];
+$mid = $_SESSION['mid'];
 
 // Fetch members with privilege 'GM' for dropdown1
-$query = "SELECT group_number FROM requests WHERE request_from = '$mid' AND r_status='a'";
+$query = "SELECT DISTINCT group_number FROM requests WHERE request_from = '$mid' AND r_status='a'";
 $result = mysqli_query($con, $query);
 $memberOptions = '';
 
@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
             border: none;
             border-radius: 5px;
             margin-top: 30px;
-            margin-left: 250px;
+            margin-left: 360px;
             cursor: pointer;
         }
     </style>

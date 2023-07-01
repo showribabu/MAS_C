@@ -89,12 +89,12 @@ $mid = $_SESSION['mid'];
             <?php
             include 'conn.php';
             $request_from=$mid;
-            $query = "SELECT request_to, message, r_status FROM requests where request_from='$request_from'";
+            $query = "SELECT group_number, message, r_status FROM requests where request_from='$request_from'";
             $res = mysqli_query($con, $query);
             while ($row = mysqli_fetch_assoc($res)) {
                 ?>
                 <tr>
-                    <td><?php echo $row['request_to']; ?></td>
+                    <td><?php echo $row['group_number']; ?></td>
                     <td><?php echo $row['message']; ?></td>
                     <td>
                         <?php

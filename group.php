@@ -2,7 +2,7 @@
 
     session_start();
     $user_id = $_SESSION['user_id'];
-    include 'connector.php';
+    include 'conn.php';
       $query1 = "select * from group_data where user_id = '$user_id'";
       $result = mysqli_query($con,$query1);
       $row1 = mysqli_fetch_assoc($result);
@@ -116,10 +116,10 @@
                         <td><?php echo $row1['privilege'] ?></td>
                         <td><form id="myForm" action="" method="post">
                         <input type="hidden" name="group_number" id="group_number" value="<?php echo $row1['group_number'] ?>">
-                        <input type="hidden" name="group_type" value="<?php echo $row1['group_type'] ?>">
+                        <input type="hidden" name="group_type" id="group_type" value="<?php echo $row1['group_type'] ?>">
                         <input type="hidden" name="privilege" id="privilege" value="<?php echo $row1['privilege'] ?>">
                         <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id ?>">
-                        <button type="button"  onclick="redirectform('<?php echo $row1['privilege'] ?>','<?php echo $user_id ?>','<?php echo $row1['group_number'] ?>')">Enter</button>
+                        <button type="button" onclick="redirectform('<?php echo $row1['privilege'] ?>','<?php echo $user_id ?>','<?php echo $row1['group_number'] ?>','<?php echo $row1['group_type'] ?>')"> Enter </button>
                         </form></td>
 
                     
@@ -150,25 +150,26 @@
 
  <script src="./js/group.js"></script>
  <script>
-   function redirectform(a,b,gnumber){
+   function redirectform(a,b,gnumber,type){
+    // console.log(a,b,gnumber,type);
     document.getElementById("user_id").value=b;
     document.getElementById("privilege").value=a;
     document.getElementById("group_number").value=gnumber;
-	if(a == 'gm')
+    document.getElementById("group_type").value = type;
+    if(a == 'member')
+    {
+        // window.location.href="pageformat.php";
+        document.getElementById("myForm").setAttribute("action","file.php");
+        document.getElementById("myForm").submit();
+    }
+	else if(a == 'gm')
 	{
 		// window.location.href="gmsuccess.php";
         document.getElementById("myForm").setAttribute("action","gmsuccess.php");
-        
         document.getElementById("myForm").submit();
 
 	}
-	else if(a == 'member')
-	{
-		// window.location.href="pageformat.php";
-        document.getElementById("myForm").setAttribute("action","pageformat.php");
-        
-        document.getElementById("myForm").submit();
-	}
+    // document.getElementById("myForm").submit();
 
    }
  </script>

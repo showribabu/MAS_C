@@ -2,26 +2,26 @@
 
 include 'conn.php';
 session_start();
-if(isset($_POST['user_id']))
-{
-    $user_id=$_POST['user_id'];
-    $group_number=$_POST['group_number'];
-    $group_type=$_POST['group_type'];
-    $privilege=$_POST['privilege'];
-// echo $user_id.','.$privilege;
+// if(isset($_POST['user_id']))
+// {
+//     $user_id=$_POST['user_id'];
+//     $group_number=$_POST['group_number'];
+//     $group_type=$_POST['group_type'];
+//     $privilege=$_POST['privilege'];
+// // echo $user_id.','.$privilege;
 
-//stores gm userid as gmid
-$_SESSION['mid']=$user_id;
-$_SESSION['group_number']=$group_number;
-$_SESSION['group_type']=$group_type;
-$_SESSION['privilege']=$privilege;
+// //stores gm userid as gmid
+//     $_SESSION['mid']=$user_id;
+//     $_SESSION['group_number']=$group_number;
+//     $_SESSION['group_type']=$group_type;
+//     $_SESSION['privilege']=$privilege;
 
 
-}
-else
-{
-    echo "Not coming";
-}
+// }
+// else
+// {
+//     echo "Not coming";
+// }
 
 
 ?>
@@ -44,7 +44,7 @@ else
             overflow: hidden;
         }
         .container {
-            width: 600px;
+            width: 780px;
             height: 360px;
             margin: auto auto;
             background-color: white;
@@ -52,7 +52,7 @@ else
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin-top:60px;
+            margin-top:120px;
         }
 
         header {
@@ -167,6 +167,17 @@ else
 
     // }
     $name = $row['first_name'];
+        /*IMage url from database..*/
+$sql34 = "SELECT photo_location FROM user WHERE user_id='$mid'";
+$rr = mysqli_query($con, $sql34);
+if ($rr) {
+    $photo_location = mysqli_fetch_row($rr)[0];
+    $photo_location = './%23'.substr($photo_location,1,strlen($photo_location));
+    $_SESSION['photo_location'] = $photo_location;
+    // echo "photo_location: ".$_SESSION['photo_location'];
+} else {
+    echo "<script>alert('Error in finding Image location');</script>";
+}
     ?>
     <header>
         <div class="prof">
@@ -177,7 +188,7 @@ else
     </div>
         <nav>
             <ul>
-                <li><a href="memberpage.php">Home</a></li>
+                <li><a href="group.php">Home</a></li>
                 <li><a href="requestmembership.php">Request Membership</a>
                     <ul>
                         <li><a href="requestform1.php">Become Manager</a></li>
@@ -188,7 +199,7 @@ else
                 <li><a href="dataaccess.php">Data Access</a>
                     <ul>
                         <li><a href="fileupload.php">Upload file</a></li>
-                        <li><a href="files.php">Access file</a></li>
+                        <li><a href="file.php">Access file</a></li>
                     </ul>
                 </li>
                 <li>
@@ -199,13 +210,38 @@ else
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Logout</a>
+                    <?php
+                // // Check if the user is already logged in
+                // if (!isset($_SESSION['mid'])) {
+                // // Redirect to the login page if not logged in
+                // header("Location: index.php");
+                // exit();
+                // }
+
+                // Handle the logout process
+                if (isset($_GET['logout'])) {
+                // Clear all session variables
+                session_unset();
+
+                // Destroy the session
+                session_destroy();
+
+                // Redirect to the login page after logout
+                header("Location: index.php");
+                exit();
+                }
+?>
+
+<!-- Logout button -->
+<a href="index.php?logout=true">Logout</a>
                 </li>
             </ul>
         </nav>
     </header>
 
     <!-- Page Content Goes Here -->
+
+
 </body>
 
 </html>

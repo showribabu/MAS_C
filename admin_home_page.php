@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // error_reporting(0);
 $admin_user_ = $_SESSION['user_id'];
 include 'connection.php';

@@ -19,7 +19,7 @@
 
     $user_id = $_SESSION['user_id'];
     
-     include 'connector.php';
+     include 'conn.php';
 
      $query1 = "select * from user where user_id = '$user_id'" ;
      $result = mysqli_query($con,$query1);
@@ -110,7 +110,7 @@
    
  
       // session_start();
-      include 'connector.php';
+      include 'conn.php';
       $current_time = date('H:i:s'); // Format: 24-hour time with hours, minutes, and seconds
       $current_date = date('Y-m-d'); // Format: Year-month-day
       $concatenate = $current_time."-".$current_date;

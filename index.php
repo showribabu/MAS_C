@@ -49,7 +49,7 @@
 
         </form>
         <form action="" method="post" hidden>
-          <input type="text" name = "carryuserid" value= "" >
+          <input type="text" name = "carryuserid" value=<?php ?>>
         </form>
         </div>
         </div>
@@ -92,7 +92,7 @@
       
       <?php
       session_start();
-      include 'connector.php';
+      include 'conn.php';
           if(isset($_POST['next']))
           {
             $userid = $_POST['userid'];
@@ -134,8 +134,11 @@
                   $_SESSION['user_id']= $userid;
                   header('Location: index2.php');
                   exit;
-                
-                  
+                  // ?>
+                  // <script>
+                  // window.location.href = "index2.php";
+                  // </script>
+                  // <?php
                 }
               else
               {
@@ -161,7 +164,11 @@
                   $_SESSION['user_id']= $userid;
                   header('Location: index2.php');
                   exit;
-              
+                  // ?>
+                  // <script>
+                  // window.location.href = "index2.php";
+                  // </script>
+                  // <?php
                 }
               else
               {

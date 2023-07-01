@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
         border: none;
         border-radius: 5px;
         margin-top: 30px;
-        margin-left: 250px;
+        margin-left: 360px;
         cursor: pointer;
     }
     </style>
