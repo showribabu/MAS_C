@@ -123,7 +123,20 @@ if ($rr) {
     </div> -->
     
 
-  
+    <?php
+            
+            foreach($rr as $i)
+            {
+   
+                $name=$i['first_name'].$i['last_name'];
+                // echo "<p>NAME : $name </p>";
+                $_SESSION['name']=$name;
+                // echo "<p>Privilege : Group Manager</p>";
+                
+             
+            }
+
+            ?>
 
     <div class="fimg">
         <?php 

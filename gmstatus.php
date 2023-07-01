@@ -50,7 +50,7 @@ include "button.html";
         
             <p class="pp" id="req">LIST OF MEMBERS</p>
 
-        <table class="tb"  border="5px" cellpadding="8px" align="center" cellspacing="5px" style="height:100px; width:780px;  text-align:center; align-items:center;">
+        <table class="tb"  border="5px" cellpadding="8px" align="center" cellspacing="5px" style="height:80px; width:780px;  text-align:center; align-items:center;">
             <tr id="tr1"><th>USER ID</th><th>MEMBER SELECTION</th><th>STATUS</th></tr>
             <?php
             $gmid=$_SESSION['gmid'];

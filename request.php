@@ -41,7 +41,7 @@ include "button.html";
         
             <p class="pp" id="req">LIST OF MEMBERS</p>
 
-        <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:100px; width:780px;  text-align:center; align-items:center;">
+        <table border="5px" cellpadding="8px" align="center" cellspacing="5px" class="tb" style="height:80px; width:780px;  text-align:center; align-items:center;">
             <tr id="tr1"><th>Request ID</th><th>Message</th><th>user_id</th><th>ACCEPT</th><th>REJECT</th></tr>
         
             <?php
