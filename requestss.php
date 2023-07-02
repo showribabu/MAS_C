@@ -37,8 +37,7 @@ if(isset($_GET['ruser_id']))
 
 
     //from->to
-
-    $sql12='update requests set r_status="rr" where request_to="'.$gmid.'" and request_from="'.$uid2.'" and request_id="'.$request_id.'"';
+    $sql12='update requests set r_status="rr" where request_to="'.$gmid.'" and request_from="'.$uid3.'" and r_status="rm" and group_number="'.$_SESSION['group_number'].'"';
     $rr=mysqli_query($con,$sql12);
     if($rr)
     {

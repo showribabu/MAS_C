@@ -123,7 +123,7 @@ $r2=mysqli_query($con,$sql2);
 
                 // echo "<td>$j[mid]</td>";
 
-                echo "<td><a href='rmv.php?user_id={$j['user_id']}' class='btn btn-danger' id='A'>REMOVE</a></td>";
+                echo "<td><a href='requests.php?duser_id={$j['user_id']}' class='btn btn-danger' id='A'>REMOVE</a></td>";
                 // ?user_id=<?php echo $i[user_id];?////>
                 // $_SESSION['uid3']=$j['user_id'];
     

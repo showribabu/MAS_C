@@ -44,7 +44,8 @@ $gmid=$_SESSION['gmid'];
                     foreach($r1 as $i)
                     {
                         echo "<tr><td>$i[request_id]</td>";
-                        $request_id=$i['request_id'];
+                        // $request_id=$i['request_id'];
+                        // $_SESSION['request_id']=$i['request_id'];
 
                         echo "<td>$i[request_from]</td>";
 

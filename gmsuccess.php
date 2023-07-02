@@ -29,6 +29,27 @@ else
 }
 
 
+
+/* System parameters*/
+
+$sql2='select * from server_parameters';
+
+$r2=mysqli_query($con, $sql2);
+if($r2) {
+    foreach($r2 as $i) {
+     
+        $_SESSION['p']=$i['p'];
+        $_SESSION['q']=$i['q'];
+        $_SESSION['kv']=$i['kv'];
+        $_SESSION['ix']=$i['ix'];
+        $_SESSION['spk']=$i['spk'];
+        $_SESSION['s']=$i['s'];
+
+
+    }
+}
+
+
 /*IMage url from database..*/
 $sql34 = "SELECT photo_location FROM user WHERE user_id='$_SESSION[gmid]'";
 $rr = mysqli_query($con, $sql34);

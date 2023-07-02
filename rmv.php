@@ -118,6 +118,12 @@ if (isset($_GET['user_id'])) {
 
 /*  HERE one UPDATE IS THAT backup_data : now add time in that table with the time of the backup data inserted...*/
 
+date_default_timezone_set('Asia/Kolkata');
+    $creation_time = date('Y-m-d H:i:s');
+
+//creation_time
+//"'.$creation_time.'"
+
 
 
     /*TYPE A*/
@@ -149,9 +155,10 @@ if (isset($_GET['user_id'])) {
                 $activity_status=$i['activity_status'];
                 $enc_key=$i['enc_key'];
                 $privilege=$i['privilege'];
+                $atime=$i['creation_time'];
 
             }
-            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'")';
+            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key,creation_time) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'","'.$creation_time.'")';
 
             $r6 = mysqli_query($con, $sql5);
             if ($r6 && mysqli_affected_rows($con) > 0) 
@@ -160,7 +167,7 @@ if (isset($_GET['user_id'])) {
 
 
                 // $sql23='delete from group_data where member_id="'.$hmid.'"';
-                $sql23='update group_data set admin_id="NULL",group_id="NULL",mv="NULL",member_id="NULL" , pgk="NULL", bi="NULL" ,activity_status="inactive",privilege="NULL",enc_key="NULL"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
+                $sql23='update group_data set admin_id="NULL",group_id="NULL",mv="NULL",member_id="NULL" , pgk="NULL", bi="NULL" ,activity_status="inactive",privilege="NULL",enc_key="NULL",creation_time="'.$atime.'"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
                 $r7=mysqli_query($con, $sql23);
                 if ($r7 && mysqli_affected_rows($con) > 0) {
                     echo "<script>alert('Member removed successfully!!!');</script>";
@@ -203,15 +210,16 @@ if (isset($_GET['user_id'])) {
                 $activity_status=$i['activity_status'];
                 $enc_key=$i['enc_key'];
                 $privilege=$i['privilege'];
+                $atime=$i['creation_time'];
 
             }
-            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'")';
+            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key,creation_time) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'","'.$creation_time.'")';
 
             $r6 = mysqli_query($con, $sql5);
             if ($r6 && mysqli_affected_rows($con) > 0) {
                 echo "<script>alert('data stored on the backup_data!!!');</script>";
 
-                $sql23='update group_data set admin_id="NULL",group_id="NULL",mv="NULL", member_id="NULL" , pgk="NULL", bi="NULL" ,activity_status="inactive", privilege="NULL", enc_key="NULL"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
+                $sql23='update group_data set admin_id="NULL",group_id="NULL",mv="NULL", member_id="NULL" , pgk="NULL", bi="NULL" ,activity_status="inactive", privilege="NULL", enc_key="NULL", creation_time="'.$atime.'"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
                 $r7=mysqli_query($con, $sql23);
                 if ($r7 && mysqli_affected_rows($con) > 0) {
                     //once data stored on the backup data...and delete record from the group_data
@@ -315,16 +323,17 @@ if (isset($_GET['user_id'])) {
                 $activity_status=$i['activity_status'];
                 $enc_key=$i['enc_key'];
                 $privilege=$i['privilege'];
+                $atime=$i['creation_time'];
 
             }
-            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'")';
+            $sql5='INSERT INTO backup_data(user_id,group_type,group_number,admin_id,group_id,mv,member_id,pgk,bi,privilege,activity_status,enc_key,creation_time) values("'.$uid3.'","'.$group_type.'","'.$group_number.'","'.$admin_id.'","'.$group_id.'","'.$mv.'","'.$hmid.'","'.$pgpk.'","'.$bindx.'","'.$privilege.'","'.$activity_status.'","'.$enc_key.'","'.$creation_time.'")';
 
             $r6 = mysqli_query($con, $sql5);
             if ($r6 && mysqli_affected_rows($con) > 0) 
             {
                 echo "<script>alert('data stored on the backup_data!!!');</script>";
 
-                $sql23='update group_data set admin_id="NULL",group_id="NULL", mv="NULL", member_id="NULL", pgk="NULL", bi="NULL" , activity_status="inactive" , privilege="NULL" , enc_key="NULL"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
+                $sql23='update group_data set admin_id="NULL",group_id="NULL", mv="NULL", member_id="NULL", pgk="NULL", bi="NULL" , activity_status="inactive" , privilege="NULL" , enc_key="NULL",creation_time="'.$atime.'"  where user_id="'.$uid3.'" and group_number="'.$group_number.'" ';
                 $r7=mysqli_query($con, $sql23);
                 if ($r7 && mysqli_affected_rows($con) > 0) {
                     echo "<script>alert('Member removed successfully!!!');</script>";
