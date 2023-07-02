@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
     $group_type = $row['group_type'];
     $group_number = $groupNumber;
 
-    $query = "INSERT INTO requests (request_from, request_to, request_id, message, r_status, group_type, group_number) VALUES ('$request_from', '$request_to', '$request_id', '$message', 'p', '$group_type', '$group_number')";
+    $query = "INSERT INTO requests (request_from, request_to, request_id, message, r_status, group_type, group_number) VALUES ('$request_from', '$request_to', '$request_id', '$message', 'rm', '$group_type', '$group_number')";
     $res = mysqli_query($con, $query);
     if ($res) {
         echo "<script>alert('Your request has been sent successfully');</script>";

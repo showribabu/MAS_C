@@ -99,11 +99,11 @@ $mid = $_SESSION['mid'];
                     <td>
                         <?php
                         $status = $row['r_status'];
-                        if ($status === 'a') {
+                        if ($status === 'a' || $status === 'ar') {
                             echo '<button class="status-button status-accepted">Accepted</button>';
-                        } elseif ($status === 'r') {
+                        } elseif ($status === 'r' || $status === 'rr') {
                             echo '<button class="status-button status-rejected">Rejected</button>';
-                        } elseif ($status === 'p') {
+                        } elseif ($status === 'p' || $status === 'rm') {
                             echo '<button class="status-button status-pending">Pending</button>';
                         } else {
                             echo $status;
